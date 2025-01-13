@@ -1,9 +1,12 @@
 
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
-import  Loggin  from "../Services/ServiceFetchForm";
+import ServiceFetchForm from "../Services/ServiceFetchForm";
+
 
 const AuthForm = () => {
+
+  const { Loggin, Signup } = ServiceFetchForm;
     // État pour basculer entre connexion et inscription
     const [isLogin, setIsLogin] = useState(true);
   
@@ -12,17 +15,13 @@ const AuthForm = () => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
-      
-      console.log(data)
-        
-      Loggin(data);
-
-      
-
+    
       if (isLogin) {
         console.log('Connexion...');
+        Loggin(data);
       } else {
         console.log('Inscription...');
+        Signup(data);
       }
     };
   
@@ -33,7 +32,7 @@ const AuthForm = () => {
           {/* Champ e-mail */}
           <div className="form_field" >
             <label htmlFor="username" className="form_label">
-              Email :
+              Nom d utilisateur :
             </label>
             <input type="text" id="text" name="username" required className="form_input" />
           </div>
