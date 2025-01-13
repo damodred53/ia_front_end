@@ -3,8 +3,8 @@ import Header from '../Components/Header';
 import CardArticle from '../Components/CardArticle'; 
 import { useEffect, useState } from 'react';
 import fetchDropdownDatas from '../Services/ServiceFetchArticle';
-import CartArticle from '../Components/CartArticle';
 import '../Styles/front_end.css';
+import CartArticle from '../Components/CartArticle';
 
 const FrontOffice = () => { 
 
@@ -44,7 +44,7 @@ const FrontOffice = () => {
 
     return (
         <div>
-            <Header isAdmin={false} />
+            <Header isAdmin={false} cartItems={cartItems}/>
             Ceci est la page front office pour l utilisateur
                 <section className='list_articles'>
                     {articles.map((article, key) => (
