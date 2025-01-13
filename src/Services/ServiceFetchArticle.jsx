@@ -2,7 +2,7 @@
 
 
     try {
-        const result = await fetch("../../public/Data/article.json");
+        const result = await fetch("http://localhost:5083/Product/GetProduct");
         
         const data = await result.json();
 

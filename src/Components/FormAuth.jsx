@@ -12,8 +12,12 @@ const AuthForm = () => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
+      
+      console.log(data)
+        
+      Loggin(data);
 
-        const result = Loggin(data);
+      
 
       if (isLogin) {
         console.log('Connexion...');
@@ -28,10 +32,10 @@ const AuthForm = () => {
         <form onSubmit={handleSubmit} className="form_form">
           {/* Champ e-mail */}
           <div className="form_field" >
-            <label htmlFor="email" className="form_label">
+            <label htmlFor="username" className="form_label">
               Email :
             </label>
-            <input type="email" id="email" name="email" required className="form_input" />
+            <input type="text" id="text" name="username" required className="form_input" />
           </div>
   
           {/* Champ mot de passe */}
