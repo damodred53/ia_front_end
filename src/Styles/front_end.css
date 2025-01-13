@@ -1,0 +1,7 @@
+.list_articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Les colonnes s'ajustent automatiquement */
+    gap: 20px; /* Espacement entre les éléments */
+    margin: 20px;
+    
+}

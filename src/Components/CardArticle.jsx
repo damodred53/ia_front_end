@@ -11,7 +11,8 @@ console.log(article);
             <div className="card-content">
                 <h2 className="card-title">{article.title}</h2>
                 <p className="card-text">{article.content}</p>
-                <button>Acheter</button>
+                <p>{article.price} €</p>
+                <button >Acheter</button>
             </div>
         </div>
     )
@@ -20,9 +21,10 @@ console.log(article);
 
 CardArticle.propTypes = {
     article: PropTypes.shape({
-        // image: PropTypes.string,
+        image: PropTypes.string,
         title: PropTypes.string,
         content: PropTypes.string,
+        price: PropTypes.number,
     }).isRequired,
 };
 

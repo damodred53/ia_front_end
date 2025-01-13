@@ -2,11 +2,19 @@
     {
         "title": "Falcon Heavy",
         "content": "La Falcon Heavy est l'une des fusées les plus puissantes au monde, développée par SpaceX. Capable de transporter de lourdes charges en orbite.",
-        "image": "https://example.com/falcon-heavy.jpg"
+        "image": "https://example.com/falcon-heavy.jpg",
+        "price": 90
     },
     {
         "title": "Dé à jouer classique",
         "content": "Ce dé à 6 faces est utilisé dans la plupart des jeux de société. Fabriqué avec des matériaux durables et des faces bien équilibrées.",
-        "image": "https://example.com/dice.jpg"
+        "image": "https://example.com/dice.jpg",
+        "price": 5
+    },
+    {
+        "title": "Dé à jouer à 20 faces",
+        "content": "Ce dé à 20 faces est utilisé dans les jeux de rôle comme Donjons et Dragons. Fabriqué avec des matériaux durables et des faces bien équilibrées.",
+        "image": "https://example.com/dice.jpg",
+        "price": 10
     }
 ]
