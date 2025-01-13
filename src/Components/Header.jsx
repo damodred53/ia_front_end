@@ -1,5 +1,3 @@
-
-
 import '../Styles/header.css';
 import PropTypes from 'prop-types';
 

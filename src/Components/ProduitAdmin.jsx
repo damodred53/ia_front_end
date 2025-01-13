@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import fetchDropdownDatas from "../Services/ServiceFetchArticle.jsx";
 import CardArticle from "./CardArticle.jsx";
 import "../Styles/ProduitAdmin.css"
+import ServiceFetchArticle from "../Services/ServiceFetchArticle.jsx";
 
 const ProduitAdmin = () => {
 
@@ -10,7 +11,7 @@ const ProduitAdmin = () => {
     useEffect(() => {
 
         const getArticles = async () => {
-            const articles = await fetchDropdownDatas();
+            const articles = await ServiceFetchArticle.fetchDropdownDatas();
             console.log("Voici mes articles : ", articles);
             setArticles(articles);
         };
