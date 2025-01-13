@@ -1,8 +1,8 @@
 import "../Styles/BackOffice.css"
-import CommentsAdmin from "./CommentsAdmin.jsx";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import ProduitAdmin from "./ProduitAdmin.jsx";
+import CommentsAdmin from "../Components/CommentsAdmin.jsx";
+import Header from "../Components/Header.jsx";
+import Footer from "../Components/Footer.jsx";
+import ProduitAdmin from "../Components/ProduitAdmin.jsx";
 import { useState } from "react";
 
 const BackOffice = () => {
