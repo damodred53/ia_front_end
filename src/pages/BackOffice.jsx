@@ -4,10 +4,12 @@ import Header from "../Components/Header.jsx";
 import Footer from "../Components/Footer.jsx";
 import ProduitAdmin from "../Components/ProduitAdmin.jsx";
 import { useState } from "react";
+import AddProduct from "../Components/AddProduct.jsx";
+import Charts from "../Components/Charts.jsx";
 
 const BackOffice = () => {
         // State pour suivre quel composant afficher
-        const [activeComponent, setActiveComponent] = useState("comments");
+        const [activeComponent, setActiveComponent] = useState("produits");
 
         const renderComponent = () => {
             switch (activeComponent) {
@@ -15,6 +17,10 @@ const BackOffice = () => {
                     return <CommentsAdmin />;
                 case "produits":
                     return <ProduitAdmin />;
+                case "addProduct":
+                    return <AddProduct />;
+                case "charts":
+                    return <Charts />;
             }
         }
 
@@ -26,11 +32,13 @@ const BackOffice = () => {
                     <p className={`left-p`}>Admin</p>
                     <ul>
                         <li onClick={() => setActiveComponent("produits")}>Produits</li>
+                        <li onClick={() => setActiveComponent("addProduct")}>Ajouter un produit</li>
                         <li onClick={() => setActiveComponent("commentaires")}>Commentaires</li>
+                        <li onClick={() => setActiveComponent("charts")}>Graphiques</li>
                     </ul>
                 </div>
                 <div className={`right`}>
-                    {renderComponent()}
+                {renderComponent()}
                 </div>
             </div>
             <Footer />
