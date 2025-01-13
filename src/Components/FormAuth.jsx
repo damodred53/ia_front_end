@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import '../Styles/formAuthStyle.css';
 
 const AuthForm = () => {
     // État pour basculer entre connexion et inscription
