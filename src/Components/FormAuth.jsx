@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
+import  Loggin  from "../Services/ServiceFetchForm";
 
 const AuthForm = () => {
     // État pour basculer entre connexion et inscription
@@ -12,7 +13,8 @@ const AuthForm = () => {
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
       console.log('Données soumises:', data);
-  
+        const result = Loggin(data);
+        console.log("le résultat final" , result);
       if (isLogin) {
         console.log('Connexion...');
       } else {
