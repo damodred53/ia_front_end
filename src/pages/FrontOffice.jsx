@@ -7,7 +7,8 @@ import '../Styles/front_end.css';
 
 const FrontOffice = () => { 
 
-    const [articles, setArticles] = useState([]);   
+    const [articles, setArticles] = useState([]);
+    const [isAdmin, setIsAdmin  ] = useState(true);
 
     useEffect(() => {
 
@@ -27,7 +28,7 @@ const FrontOffice = () => {
                 <section className='list_articles'>
                     {articles.map((article, key) => (
                         <div key={key}>
-                            <CardArticle key={article.id} article={article}  />
+                            <CardArticle key={article.id} article={article} isAdmin={isAdmin} />
                         </div>
                     ))}
                 </section>

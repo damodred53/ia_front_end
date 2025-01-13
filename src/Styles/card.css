@@ -55,5 +55,24 @@
     font-size: 14px; /* Taille du texte */
     cursor: pointer; /* Curseur adapté */
     transition: background-color 0.3s ease; /* Animation au hover */
-    
+}
+
+.button-delete {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: sans-serif;
+    cursor: pointer;
+    padding: 10px;
+    width: 100px; /* Largeur fixe pour empêcher le déplacement */
+    border: none;
+    border-radius: 20px;
+    background-color: #e74c3c;
+    color: #ffffff;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0; /* Empêche le bouton de rétrécir */
+}
+
+.button:hover {
+    background-color: #c0392b;
 }

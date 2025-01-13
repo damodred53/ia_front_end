@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import '../Styles/card.css';
 
-const CardArticle = ({ article }) => {  
+const CardArticle = ({ article, isAdmin }) => {
 
 console.log(article);
     return (
@@ -12,7 +12,7 @@ console.log(article);
                 <h2 className="card-title">{article.title}</h2>
                 <p className="card-text">{article.content}</p>
                 <p>{article.price} €</p>
-                <button >Acheter</button>
+                <button className={isAdmin ? `` : `btn-delete`}>{isAdmin ? "Acheter" : "Supprimer"}</button>
             </div>
         </div>
     )
@@ -26,6 +26,7 @@ CardArticle.propTypes = {
         content: PropTypes.string,
         price: PropTypes.number,
     }).isRequired,
+    isAdmin: PropTypes.bool.isRequired,
 };
 
 export default CardArticle;

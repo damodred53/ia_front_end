@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const BackOffice = () => {
         // State pour suivre quel composant afficher
-        const [activeComponent, setActiveComponent] = useState("comments");
+        const [activeComponent, setActiveComponent] = useState("produits");
 
         const renderComponent = () => {
             switch (activeComponent) {
