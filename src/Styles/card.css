@@ -1,0 +1,49 @@
+/* Styles de la Card */
+.card {
+    background-color: #ffffff; /* Fond blanc */
+    border: 1px solid #e0e0e0; /* Bordure légère */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    overflow: hidden; /* Contenu limité à la taille de la card */
+    max-width: 300px; /* Largeur maximale pour la card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au hover */
+}
+
+/* Effet au survol */
+.card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+}
+
+/* Contenu de la card */
+.card-content {
+    padding: 16px; /* Espacement interne */
+}
+
+/* Titre de la card */
+.card-title {
+    font-size: 18px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    color: #2c3e50; /* Couleur sombre */
+    margin: 0 0 10px; /* Espacement inférieur */
+    text-align: center;
+}
+
+/* Texte de la card */
+.card-text {
+    font-size: 14px; /* Taille du texte */
+    line-height: 1.6; /* Espacement entre les lignes */
+    color: #7f8c8d; /* Texte en couleur grise */
+    margin: 0 0 20px; /* Espacement inférieur */
+}
+
+/* Bouton */
+.card button {
+    background-color: #3498db; /* Bleu clair */
+    color: #ffffff; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    padding: 8px 16px; /* Espacement interne */
+    font-size: 14px; /* Taille du texte */
+    cursor: pointer; /* Curseur adapté */
+    transition: background-color 0.3s ease; /* Animation au hover */
+}
