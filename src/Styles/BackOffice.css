@@ -1,0 +1,40 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    flex: 1; /* Prend tout l'espace disponible entre le header et le footer */
+    /*min-height: 100vh; !* Le corps occupe toute la hauteur de la fenêtre *!*/
+}
+
+.left {
+    width: 30%;
+    border-right: 1px solid black;
+}
+
+.right {
+    width: 70%;
+    padding: 2rem;
+}
+
+.left-p {
+    font-size: 2.6rem;
+}
