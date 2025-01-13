@@ -12,9 +12,9 @@ const AuthForm = () => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
-      console.log('Données soumises:', data);
+
         const result = Loggin(data);
-        console.log("le résultat final" , result);
+
       if (isLogin) {
         console.log('Connexion...');
       } else {

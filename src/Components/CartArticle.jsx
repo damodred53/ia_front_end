@@ -1,8 +1,10 @@
 
 import PropTypes from 'prop-types';
 
-const Cart = ({ cartItems, removeFromCart }) => {
+const Cart = ({ cartItems}) => {
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+
 
     return (
         <div className="cart">
@@ -12,11 +14,12 @@ const Cart = ({ cartItems, removeFromCart }) => {
             ) : (
                 <>
                     <ul>
-                        {cartItems.map(item => (
-                            <li key={item.id}>
+                        {cartItems.map((item, index) => (
+                            <li key={index}>
                                 <img src={item.image} alt={item.title} />
                                 <p>{item.title} - ${item.price}</p>
-                                <button onClick={() => removeFromCart(item.id)}>Retirer</button>
+                                {/* <button onClick={() => removeFromCart(item.id)}>Retirer</button> */}
+                                <p>Quantité: {item.quantity}</p>
                             </li>
                         ))}
                     </ul>
@@ -33,8 +36,7 @@ Cart.propTypes = {
         image: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
-    })).isRequired,
-    removeFromCart: PropTypes.func.isRequired,
+    })).isRequired
 };
 
 export default Cart;

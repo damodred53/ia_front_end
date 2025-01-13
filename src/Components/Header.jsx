@@ -12,6 +12,10 @@ function Header({ isAdmin }) {
       <nav className="nav">
         <ul className="nav-list">
           {/* Onglets visibles uniquement si l'utilisateur est administrateur */}
+          {!isAdmin && 
+            <img src="../../public/assets/cart.svg" alt='logo de caddie' className='logo_cart'/>
+          }
+          
           {isAdmin && (
             <>
               <li className="nav-item">

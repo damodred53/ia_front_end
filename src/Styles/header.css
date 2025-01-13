@@ -12,6 +12,11 @@
     font-size: 24px;
     font-weight: bold;
   }
+
+  .logo_cart {
+    width: 3rem;
+    cursor: pointer;
+  }
   
   .nav {
     display: flex;
