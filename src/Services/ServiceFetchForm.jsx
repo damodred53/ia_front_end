@@ -1,6 +1,7 @@
 
 const Loggin = async ({username, password}) => {
 
+
     console.log("voici ce que j'envoie :", username, password)
     try {
         const response = await fetch("http://localhost:5083/Utilisateur/Login", {
@@ -15,10 +16,10 @@ const Loggin = async ({username, password}) => {
             throw new Error("Login failed. Please check your credentials.");
         } else {
             console.log("Login success");
+            return { success: true };
         }
 
-        const data = await response.json();
-        console.log(data);
+        
     } catch (error) {
         console.log("impossible d'envoyer les données à l'API", error);
     }
@@ -40,10 +41,10 @@ const Signup = async ({username, password}) => {
             throw new Error("Inscription failed. Please check your credentials.");
         } else {
             console.log("Signup success");
+            return { success: true };
         }
 
-        const data = await response.json();
-        console.log(data);
+        
     } catch (error) {
         console.log("impossible d'envoyer les données à l'API", error);
     }

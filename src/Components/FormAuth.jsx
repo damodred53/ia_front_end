@@ -2,26 +2,35 @@
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
 import ServiceFetchForm from "../Services/ServiceFetchForm";
-
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
 
+  const navigate = useNavigate();
   const { Loggin, Signup } = ServiceFetchForm;
     // État pour basculer entre connexion et inscription
     const [isLogin, setIsLogin] = useState(true);
   
     // Gestionnaire pour soumettre le formulaire
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
     
       if (isLogin) {
         console.log('Connexion...');
-        Loggin(data);
+        const result = await Loggin(data);
+        if (result.success) { 
+          navigate("/user"); 
+      } else {
+          alert("Connexion échouée : " + result.message);
+      }
       } else {
         console.log('Inscription...');
-        Signup(data);
+        const result = await Signup(data);
+        if (result.success) { 
+          navigate("/user"); 
+      }
       }
     };
   
