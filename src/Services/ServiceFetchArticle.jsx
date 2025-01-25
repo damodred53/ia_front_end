@@ -1,10 +1,23 @@
  const fetchDropdownDatas = async () => {
-
+    
     try {
         const result = await fetch("http://localhost:5083/Product/GetProduct");
-        
+       
         const data = await result.json();
+        console.log('Voici mes données : ', data);
+        return data;
+    } catch (error) {
+        console.error("Erreur lors de la récupération des données du dropdown ", error);
+        throw error;
+    }
+}
 
+const getProductById = async ({id}) => {
+
+    try {
+        const result = await fetch(`http://localhost:5083/Product/GetProduct/${id}`);
+        const data = await result.json();
+        console.log('Voici mes données : ', data);
         return data;
     } catch (error) {
         console.error("Erreur lors de la récupération des données du dropdown ", error);
@@ -50,4 +63,6 @@
      }
  };
 
-export default {fetchDropdownDatas, CreateArticle, DeleteArticle};
+
+
+export default {fetchDropdownDatas, CreateArticle, DeleteArticle, getProductById};

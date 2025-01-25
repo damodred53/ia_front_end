@@ -2,10 +2,19 @@
 import PropTypes from 'prop-types';
 import '../Styles/card.css';
 import ServiceFetchArticle from "../Services/ServiceFetchArticle.jsx";
+import { useNavigate } from 'react-router-dom';
 
-const CardArticle = ({ article, isAdmin }) => {
+const CardArticle = ({ article, isAdmin, addToCart }) => {
+
+    const navigate = useNavigate();
+
+    const NavigatePageProduct = (id) => {
+        
+        navigate(`/product/${id}`);
+    }
 
 console.log(article);
+console.log(isAdmin);
     return (
         <div className="card">
             {/* <img src={article.image} alt={article.title} className="card-image" /> */}
@@ -14,9 +23,11 @@ console.log(article);
                 <p className="card-text">{article.content}</p>
                 <p>{article.price} €</p>
                 <button className={isAdmin ? `` : `btn-delete`}
-                        onClick={() => { isAdmin ? null : ServiceFetchArticle.DeleteArticle(article.id) }}>
-                    {isAdmin ? "Acheter" : "Supprimer"}
+                        onClick={() => { isAdmin ? ServiceFetchArticle.DeleteArticle(article.id) : addToCart(article) }}>
+                    {isAdmin ? "Supprimer" : "Acheter"}
                 </button>
+                {!isAdmin ? <button className="btn-comment" onClick={() => NavigatePageProduct(article.id)}>Laisser un commentaire</button> : null}
+                
             </div>
         </div>
     )

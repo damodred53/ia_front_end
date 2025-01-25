@@ -2,14 +2,17 @@ import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import CardArticle from '../Components/CardArticle'; 
 import { useEffect, useState } from 'react';
-import fetchDropdownDatas from '../Services/ServiceFetchArticle';
+import ServiceFetchArticles from '../Services/ServiceFetchArticle';
 import '../Styles/front_end.css';
-import CartArticle from '../Components/CartArticle';
+import Cart from '../Components/CartArticle';
 
 const FrontOffice = () => { 
 
-    const [articles, setArticles] = useState([]);
+    const {fetchDropdownDatas} = ServiceFetchArticles;
+
     const [cartItems, setCartItems] = useState([]);
+    const [articles, setArticles] = useState([]);
+    const [isAdmin, setIsAdmin] = useState();
 
     const addToCart = (article) => {
         // Vérifier si l'article est déjà dans le panier
@@ -29,15 +32,28 @@ const FrontOffice = () => {
             setCartItems(prevItems => [...prevItems, { ...article, quantity: 1 }]);
         }
     };
-    const [articles, setArticles] = useState([]);
-    const [isAdmin, setIsAdmin  ] = useState(true);
+
+    const decreaseQuantity = (article) => {
+        const existingArticle = cartItems.find(item => item.title === article.title);
+        if (existingArticle) {
+            setCartItems(prevItems =>
+                prevItems.map(item =>
+                    item.title === article.title
+                        ? { ...item, quantity: item.quantity - 1 } 
+                        : item
+                )
+            );
+            if (existingArticle.quantity <= 1) {
+                setCartItems(prevItems => prevItems.filter(item => item.title !== article.title));
+            }
+    }};
 
     useEffect(() => {
-
+        console.log("Je suis dans le useEffect de FrontOffice");
         const getArticles = async () => {
-            const articles = await fetchDropdownDatas();
-            console.log("Voici mes articles : ", articles);
-            setArticles(articles);
+            const article = await fetchDropdownDatas();
+            console.log("Voici mes articles : ", article);
+            setArticles(article);
         };
         getArticles();
 
@@ -52,16 +68,15 @@ const FrontOffice = () => {
                 <section className='list_articles'>
                     {articles.map((article, key) => (
                         <div key={key}>
-                            <CardArticle key={article.id} article={article} isAdmin={isAdmin} />
-                            <CardArticle key={article.id} article={article} addToCart={addToCart} />
+                            <CardArticle key={article.id} article={article} addToCart={addToCart} isAdmin={isAdmin} />
                         </div>
                     ))}
                 </section>
-                <CartArticle cartItems={cartItems}  />
+                <Cart cartItems={cartItems} decreaseQuantity={decreaseQuantity}  />
             <Footer />
         </div>
     )
 
 }
 
-export default FrontOffice
+export default FrontOffice;

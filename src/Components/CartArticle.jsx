@@ -1,10 +1,11 @@
 
 import PropTypes from 'prop-types';
+import '../styles/cart.css';
 
-const Cart = ({ cartItems}) => {
+const Cart = ({ cartItems, decreaseQuantity}) => {
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
-
+   
 
     return (
         <div className="cart">
@@ -13,13 +14,14 @@ const Cart = ({ cartItems}) => {
                 <p>Votre panier est vide.</p>
             ) : (
                 <>
-                    <ul>
+                    <ul className='cart-items'>
                         {cartItems.map((item, index) => (
-                            <li key={index}>
+                            <li key={index} className='cart-item-row'>
                                 <img src={item.image} alt={item.title} />
                                 <p>{item.title} - ${item.price}</p>
                                 {/* <button onClick={() => removeFromCart(item.id)}>Retirer</button> */}
                                 <p>Quantité: {item.quantity}</p>
+                                <button onClick={() => decreaseQuantity(item)}>retirer un élément</button>
                             </li>
                         ))}
                     </ul>
@@ -36,7 +38,8 @@ Cart.propTypes = {
         image: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
-    })).isRequired
+    })).isRequired,
+    decreaseQuantity: PropTypes.func.isRequired
 };
 
 export default Cart;
