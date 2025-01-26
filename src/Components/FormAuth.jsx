@@ -2,25 +2,27 @@
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
 import  Loggin  from "../Services/ServiceFetchForm";
+import SaveToken  from "../Services/ServiceAuth";
 
 const AuthForm = () => {
     // État pour basculer entre connexion et inscription
     const [isLogin, setIsLogin] = useState(true);
   
     // Gestionnaire pour soumettre le formulaire
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData.entries());
       
       console.log(data)
         
-      Loggin(data);
+      const resultFromLoggin = await Loggin(data);
 
-      
+      console.log("voici ce que je veux voir : ", resultFromLoggin);
 
       if (isLogin) {
         console.log('Connexion...');
+         SaveToken(resultFromLoggin.userId);
       } else {
         console.log('Inscription...');
       }

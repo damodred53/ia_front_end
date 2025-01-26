@@ -18,7 +18,10 @@ const Loggin = async ({username, password}) => {
         }
 
         const data = await response.json();
-        console.log(data);
+
+        console.log("voici ce que je veux voir : ", data);
+        return data;
+
     } catch (error) {
         console.log("impossible d'envoyer les données à l'API", error);
     }

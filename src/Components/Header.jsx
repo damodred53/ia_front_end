@@ -35,7 +35,7 @@ function Header({ isAdmin }) {
 }
 
 Header.propTypes = {
-    isAdmin: PropTypes.bool.isRequired, // isAdmin doit être un booléen et est requis
+    isAdmin: PropTypes.bool // isAdmin doit être un booléen et est requis
   };
 
 export default Header;
