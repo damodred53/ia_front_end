@@ -2,11 +2,15 @@
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
 import  Loggin  from "../Services/ServiceFetchForm";
-import SaveToken  from "../Services/ServiceAuth";
+import SaveToken from "../Services/ServiceAuth";
+import { useNavigate } from "react-router-dom";
+
 
 const AuthForm = () => {
     // État pour basculer entre connexion et inscription
     const [isLogin, setIsLogin] = useState(true);
+
+    const navigate = useNavigate();
   
     // Gestionnaire pour soumettre le formulaire
     const handleSubmit = async (e) => {
@@ -22,11 +26,23 @@ const AuthForm = () => {
 
       if (isLogin) {
         console.log('Connexion...');
-         SaveToken(resultFromLoggin.userId);
+        SaveToken(resultFromLoggin.userId);
+
+        NavigateToPage(resultFromLoggin);
       } else {
         console.log('Inscription...');
       }
     };
+
+    const NavigateToPage = (connectionData) => {
+  
+      if (connectionData.isadmin && connectionData.isadmin === true) {
+          navigate("/admin");
+          
+      } else {
+          navigate("/user");
+      }
+  }
   
     return (
       <div className="form_container" >
