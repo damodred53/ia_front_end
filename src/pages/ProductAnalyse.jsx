@@ -14,6 +14,7 @@ const ProductAnalyse = () => {
     const {id} = useParams();
     const [productToDisplay, setProductToDisplay] = useState([]);
     const [allProductByUser, setAllProductByUser] = useState([]);
+    const numericId = parseInt(id);
 
     useEffect(() => {
 
@@ -89,8 +90,7 @@ const ProductAnalyse = () => {
                         <div>
                             <form onSubmit={handleSubmitComment}>
                                 {
-                                    allProductByUser.includes(id) ? <p>Vous n avez jamais acheté ce produit</p> 
-                                    :
+                                    allProductByUser.includes(numericId) ? 
                                     <>
                                     <label htmlFor="comment">Votre commentaire : </label>
                                     <input type="textarea" id="comment" name="comment"  />
@@ -98,6 +98,8 @@ const ProductAnalyse = () => {
                                         <button type="submit" >Ajouter un commentaire</button>
                                     </div>
                                     </>
+                                    :
+                                    <p>Vous n avez jamais acheté ce produit</p> 
                                 }
                                 
                             </form>
