@@ -56,7 +56,7 @@ const ProductAnalyse = () => {
         getAllProductsByUser();
     }, [productToDisplay]);
 
-    console.log("Voici les produits déjà achetés par l'utilisateur : ", allProductByUser);
+    console.log("Voici les produits déjà achetés par l'utilisateur : ", allProductByUser, "et l id du produit: ", id);
 
     const handleSubmitComment = async (event) => {
         event.preventDefault();
@@ -89,7 +89,7 @@ const ProductAnalyse = () => {
                         <div>
                             <form onSubmit={handleSubmitComment}>
                                 {
-                                    allProductByUser.includes(id) ? <p>Vous avez déjà acheté ce produit</p> 
+                                    allProductByUser.includes(id) ? <p>Vous n avez jamais acheté ce produit</p> 
                                     :
                                     <>
                                     <label htmlFor="comment">Votre commentaire : </label>
