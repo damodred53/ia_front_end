@@ -1,5 +1,5 @@
 
-const PostComments = async ( message, idUser, idArticle ) => {
+export const PostComments = async ( message, idUser, idArticle ) => {
 
 
     const postData = {
@@ -27,4 +27,20 @@ const PostComments = async ( message, idUser, idArticle ) => {
     }
 
 }
-export default PostComments;
+
+export const GetOrderByUserId = async (idUser) => {
+
+    
+    try {
+        
+        const fetchOrderedProducts = await fetch(`http://localhost:5083/Buy?idUser=${idUser}`);
+        const result = await fetchOrderedProducts.json();
+
+        return result;
+    } 
+    catch (error) {
+        console.error("Erreur lors de la récupération des commandes effectuées par l'utilisateur ", error);
+        throw error;
+    }
+
+}

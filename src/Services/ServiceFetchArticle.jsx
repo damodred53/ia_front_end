@@ -37,9 +37,9 @@ const getProductById = async ({id}) => {
      })
 
      if (response.ok) {
-         console.log("Vous venez de créer une nouvelle scène");
+         console.log("Vous venez de créer un nouveau produit");
      } else {
-         console.error("Impossible de créer la nouvelle scène")
+         console.error("Impossible de créer le nouveau produit")
      }
  }
 
