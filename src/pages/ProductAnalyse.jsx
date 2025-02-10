@@ -80,9 +80,7 @@ const ProductAnalyse = () => {
                     <div>
                         <h1>Produit : ${productToDisplay.title} </h1>
 
-                        <div>
-                            
-                        </div>
+                        
                         <div>
                             <p>Contenu : ${productToDisplay.content}</p>
                             <p>Prix : ${productToDisplay.price} €</p>

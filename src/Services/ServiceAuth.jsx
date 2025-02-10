@@ -1,8 +1,15 @@
 
 
- const SaveToken = (token) => {
+ export const SaveToken = (token) => {
     
-    localStorage.setItem("tokenUser", token);
+    const tokenUser = localStorage.setItem("tokenUser", token);
+
+    return tokenUser;
 }
 
-export default SaveToken;
+export const GetToken = () => {
+    const tokenUser = localStorage.getItem("tokenUser");
+
+    return tokenUser;
+}
+

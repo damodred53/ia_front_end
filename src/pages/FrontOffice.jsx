@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import ServiceFetchArticles from '../Services/ServiceFetchArticle';
 import '../Styles/front_end.css';
 import Cart from '../Components/CartArticle';
+import ServiceOrderBuy from '../Services/ServiceOrderBuy';
+import {GetToken} from '../Services/ServiceAuth';
 
 const FrontOffice = () => { 
 
@@ -45,8 +47,23 @@ const FrontOffice = () => {
             );
             if (existingArticle.quantity <= 1) {
                 setCartItems(prevItems => prevItems.filter(item => item.title !== article.title));
+                // setArticles(prevItems => prevItems.filter(item => item.title !== article.title));
             }
     }};
+
+    const handleOrder = () => {
+        
+
+        if (!cartItems) {
+            return alert("Votre panier est vide");
+        }
+
+        const idUser = GetToken()
+
+        console.log(cartItems, idUser);
+
+        const orderProducts = ServiceOrderBuy(cartItems, idUser);
+    };
 
     useEffect(() => {
         console.log("Je suis dans le useEffect de FrontOffice");
@@ -72,7 +89,7 @@ const FrontOffice = () => {
                         </div>
                     ))}
                 </section>
-                <Cart cartItems={cartItems} decreaseQuantity={decreaseQuantity}  />
+                <Cart cartItems={cartItems} decreaseQuantity={decreaseQuantity} handleOrder={handleOrder}  />
             <Footer />
         </div>
     )

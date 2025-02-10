@@ -2,7 +2,7 @@
 import { useState } from "react";
 import '../Styles/formAuthStyle.css';
 import  Loggin  from "../Services/ServiceFetchForm";
-import SaveToken from "../Services/ServiceAuth";
+import {SaveToken} from "../Services/ServiceAuth";
 import { useNavigate } from "react-router-dom";
 
 
