@@ -81,7 +81,6 @@ const FrontOffice = () => {
     return (
         <div>
             <Header isAdmin={false} cartItems={cartItems}/>
-            Ceci est la page front office pour l utilisateur
                 <section className='list_articles'>
                     {articles.map((article, key) => (
                         <div key={key}>

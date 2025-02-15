@@ -37,6 +37,13 @@
     text-align: center;
 }
 
+.card-picture {
+    max-width: 80%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+}
+
 /* Texte de la card */
 .card-text {
     font-size: 14px; 

@@ -9,7 +9,6 @@ const CardArticle = ({ article, isAdmin, addToCart }) => {
     const navigate = useNavigate();
 
     const NavigatePageProduct = (id) => {
-        
         navigate(`/product/${id}`);
     }
 
@@ -20,6 +19,7 @@ console.log(isAdmin);
             {/* <img src={article.image} alt={article.title} className="card-image" /> */}
             <div className="card-content">
                 <h2 className="card-title">{article.title}</h2>
+                <img className='card-picture' src={article.image} alt={article.title}/>
                 <p className="card-text">{article.content}</p>
                 <p>{article.price} €</p>
                 <button className={isAdmin ? `` : `btn-delete`}
