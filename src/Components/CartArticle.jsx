@@ -9,24 +9,23 @@ const Cart = ({ cartItems, decreaseQuantity, handleOrder}) => {
 
     return (
         <div className="cart">
-            <h2>Votre Panier</h2>
+            <h2>Votre panier</h2>
             {cartItems.length === 0 ? (
-                <p>Votre panier est vide.</p>
+                <p className='empty_cart'>Votre panier est vide.</p>
             ) : (
                 <>
                     <ul className='cart-items'>
                         {cartItems.map((item, index) => (
                             <li key={index} className='cart-item-row'>
-                                <img src={item.image} alt={item.title} />
-                                <p>{item.title} - ${item.price}</p>
-                                {/* <button onClick={() => removeFromCart(item.id)}>Retirer</button> */}
-                                <p>Quantité: {item.quantity}</p>
+                                <img className='cart-picture' src={item.image} alt={item.title} />
+                                <p className='cart-price-quantity'>{item.title} - {item.price}</p>
+                                <p className='cart-price-quantity'>Quantité: {item.quantity}</p>
                                 <button onClick={() => decreaseQuantity(item)}>retirer un élément</button>
                             </li>
                         ))}
                     </ul>
-                    <p><strong>Total: ${total.toFixed(2)}</strong></p>
-                    <button onClick={handleOrder}>Passer à la caisse</button>
+                    <p className='cart-total'><strong>Total: {total.toFixed(2)}</strong></p>
+                    <button className='cart-button' onClick={handleOrder}>Passer à la caisse</button>
                 </>
             )}
         </div>

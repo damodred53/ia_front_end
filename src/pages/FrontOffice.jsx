@@ -79,8 +79,9 @@ const FrontOffice = () => {
     console.log(cartItems);
 
     return (
-        <div>
+        <div >
             <Header isAdmin={false} cartItems={cartItems}/>
+            <div className='front_office'>
                 <section className='list_articles'>
                     {articles.map((article, key) => (
                         <div key={key}>
@@ -88,7 +89,9 @@ const FrontOffice = () => {
                         </div>
                     ))}
                 </section>
+                <hr className='line'/>
                 <Cart cartItems={cartItems} decreaseQuantity={decreaseQuantity} handleOrder={handleOrder}  />
+            </div>
             <Footer />
         </div>
     )

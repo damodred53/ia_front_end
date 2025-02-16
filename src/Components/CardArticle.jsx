@@ -14,6 +14,7 @@ const CardArticle = ({ article, isAdmin, addToCart }) => {
 
 console.log(article);
 console.log(isAdmin);
+
     return (
         <div className="card">
             {/* <img src={article.image} alt={article.title} className="card-image" /> */}
@@ -21,17 +22,15 @@ console.log(isAdmin);
                 <h2 className="card-title">{article.title}</h2>
                 <img className='card-picture' src={article.image} alt={article.title}/>
                 <p className="card-text">{article.content}</p>
-                <p>{article.price} €</p>
+                <p className="card-price">{article.price} €</p>
                 <button className={isAdmin ? `` : `btn-delete`}
                         onClick={() => { isAdmin ? ServiceFetchArticle.DeleteArticle(article.id) : addToCart(article) }}>
                     {isAdmin ? "Supprimer" : "Acheter"}
                 </button>
                 {!isAdmin ? <button className="btn-comment" onClick={() => NavigatePageProduct(article.id)}>Laisser un commentaire</button> : null}
-                
             </div>
         </div>
     )
-
 }
 
 CardArticle.propTypes = {

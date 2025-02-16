@@ -1,11 +1,21 @@
 import '../Styles/header.css';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 function Header({ isAdmin }) {
+
+  const navigate = useNavigate();
+  
+  const handleNavigateHome = () => {
+    navigate('/');
+  }
+
+
+
   return (
     <header className="header">
       <div className="logo">
-        <h1>Bienvenue sur notre site !</h1>
+        <h1 onClick={handleNavigateHome}>Bienvenue sur notre site !</h1>
       </div>
       <nav className="nav">
         <ul className="nav-list">

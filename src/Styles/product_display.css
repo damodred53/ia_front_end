@@ -1,0 +1,27 @@
+
+.product_display_data{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 5rem;
+    font-size: 35px;
+}
+
+.button_comment{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.button_comment button{
+ 
+    font-size: 24px;
+    font-weight: 700;
+    width: 80%;
+    border: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

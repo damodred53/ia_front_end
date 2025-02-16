@@ -1,25 +1,26 @@
 .footer {
-    background-color: #4caf50; /* Couleur de fond sombre */
-    color: #ecf0f1; /* Texte clair pour contraster avec le fond */
-    text-align: center; /* Centrer le contenu */
-    padding: 20px 0; /* Espacement en haut et en bas */
-    font-size: 14px; /* Taille du texte */
-    position: relative; /* Utile pour ajuster dans des contextes particuliers */
+
+    background-color: #4caf50; 
+    color: #ecf0f1; 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 14px; 
+    position: relative; 
     bottom: 0;
-    width: 100%; /* Prend toute la largeur de l'écran */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    width: 100%; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer_paragraph {
-    margin: 0; /* Supprime les marges par défaut */
-    line-height: 1.5; /* Améliore la lisibilité */
-    font-family: 'Arial', sans-serif; /* Police simple et universelle */
+    margin: 0; 
+    line-height: 1.5; 
+    font-family: 'Arial', sans-serif; 
 }
 
 /* Media queries pour s'adapter aux petits écrans */
 @media (max-width: 768px) {
     .footer {
-        font-size: 12px; /* Réduit légèrement la taille sur mobile */
-        padding: 15px 0; /* Moins d'espacement pour un écran compact */
+        font-size: 12px; 
+        padding: 15px 0; 
     }
 }

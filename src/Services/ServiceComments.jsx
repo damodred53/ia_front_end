@@ -1,7 +1,6 @@
 
 export const PostComments = async ( message, idUser, idArticle ) => {
 
-
     const postData = {
         message: message,
         id: idUser,
@@ -10,14 +9,14 @@ export const PostComments = async ( message, idUser, idArticle ) => {
 
     console.log("voici ce que j'envoie :", postData)
 
-  const response = await fetch("http://localhost:5083/Com/AddMessage", {
+    const response = await fetch("http://localhost:5083/Com/AddMessage", {
 
-    method: 'POST',
-    headers: {
-        "Content-Type":"application/json",
-    },
-    body: JSON.stringify( postData )
-  })
+        method: 'POST',
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: JSON.stringify( postData )
+    })
 
     if (response.ok) {
         console.log("Vous venez de créer un nouveau commentaire");
@@ -30,7 +29,6 @@ export const PostComments = async ( message, idUser, idArticle ) => {
 
 export const GetOrderByUserId = async (idUser) => {
 
-    
     try {
         
         const fetchOrderedProducts = await fetch(`http://localhost:5083/Buy?idUser=${idUser}`);
@@ -43,4 +41,19 @@ export const GetOrderByUserId = async (idUser) => {
         throw error;
     }
 
+}
+
+export const GetCommentsByIdProduct = async (idProduct) => {
+    
+    try {
+        
+        const fetchComments = await fetch(`http://localhost:5083/Com/GetMessage?idProduct=${idProduct}`);
+        const result = await fetchComments.json();
+
+        return result;
+    } 
+    catch (error) {
+        console.error("Erreur lors de la récupération des commentaires de l'article ", error);
+        throw error;
+    }
 }
