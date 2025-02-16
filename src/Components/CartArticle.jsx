@@ -1,11 +1,12 @@
 
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import '../styles/cart.css';
 
 const Cart = ({ cartItems, decreaseQuantity, handleOrder}) => {
-    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
-  
+
+    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     return (
         <div className="cart">
