@@ -1,6 +1,5 @@
 
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import '../styles/cart.css';
 
 const Cart = ({ cartItems, decreaseQuantity, handleOrder}) => {
