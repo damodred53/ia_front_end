@@ -25,3 +25,14 @@ export const DeleteComment = async (idComment) => {
         throw error;
     }
 };
+
+export const GetAllProducts = async () => {
+    try {
+        const response = await fetch("http://localhost:5083/Product/GetProduct");
+        if (!response.ok) throw new Error("Erreur API produits");
+        return await response.json();
+    } catch (error) {
+        console.error("Erreur récupération produits :", error);
+        throw error;
+    }
+};

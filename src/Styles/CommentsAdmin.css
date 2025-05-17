@@ -51,3 +51,25 @@
 .btn:hover {
     background-color: #c0392b;
 }
+
+.sentiment {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.sentiment.positive {
+    background-color: #d4f8d4;
+    color: #2e7d32;
+}
+
+.sentiment.negative {
+    background-color: #fde2e2;
+    color: #c62828;
+}
+
+.sentiment.neutral {
+    background-color: #eeeeee;
+    color: #666666;
+}
