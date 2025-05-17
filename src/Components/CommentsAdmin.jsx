@@ -1,14 +1,34 @@
+import {useEffect, useState} from "react";
+import {GetAllComments, DeleteComment} from "../Services/ServiceFetchComments";
 import "../Styles/CommentsAdmin.css";
 
 const CommentsAdmin = () => {
-    const comments = Array.from({ length: 50 }, (_, index) => {
-        const length = Math.floor(Math.random() * 50) + 10; // Longueur aléatoire entre 10 et 60
-        return `Commentaire ${index + 1}: ` + "x".repeat(length);
-    });
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
+    const fetchComments = async () => {
+        try {
+            const data = await GetAllComments();
+            setComments(data);
+        } catch (error) {
+            console.error("Erreur lors du chargement des commentaires :", error);
+        }
+    };
+
+    const handleDelete = async (idComment) => {
+        try {
+            await DeleteComment(idComment);
+            setComments(prev => prev.filter(c => c.id !== idComment));
+        } catch (error) {
+            console.error("Erreur lors de la suppression du commentaire :", error);
+        }
+    };
 
     return (
         <div>
-            {/* Menu de tri */}
             <select>
                 <option value="">Choisir une option</option>
                 <option value="date">Date</option>
@@ -16,12 +36,21 @@ const CommentsAdmin = () => {
                 <option value="score">Score</option>
             </select>
 
-            {/* Liste des commentaires */}
             <ul className="ul-class">
-                {comments.map((comment, index) => (
-                    <li className="li-class" key={index}>
-                        <span className="text">{comment}</span>
-                        <button className="btn btn-round btn-delete">Supprimer</button>
+                {comments.map((comment) => (
+                    <li className="li-class" key={comment.id}>
+                        <div className="comment-content">
+                            <span className="text">{comment.message}</span>
+                            <span className={`sentiment ${comment.sentiment.toLowerCase()}`}>
+                    {comment.sentiment}
+                </span>
+                        </div>
+                        <button
+                            className="btn btn-round btn-delete"
+                            onClick={() => handleDelete(comment.id)}
+                        >
+                            Supprimer
+                        </button>
                     </li>
                 ))}
             </ul>
