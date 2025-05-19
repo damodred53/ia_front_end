@@ -25,7 +25,7 @@ const BackOffice = () => {
         }
 
     return (
-        <div>
+        <div className='main_page'>
             <Header isAdmin={false} />
             <div className={`container`}>
                 <div className={`left`}>
