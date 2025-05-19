@@ -1,9 +1,26 @@
-html {
+html, body {
     font-size: 62.5%;
+    height: 100%;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.main_page {
+    display: flex;
+  flex-direction: column;
+    flex: 1;
+}
+
+.main_page main {
+    flex: 1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

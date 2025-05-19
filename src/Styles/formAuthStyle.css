@@ -1,5 +1,5 @@
 .form_container {
-    margin: 50px auto;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,19 +7,13 @@
     padding: 20px;
     border: 1px solid #ddd;
     height: 100vh;
-    /* max-width: 400px; */
-    margin: 50px auto;
+
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0 0 0 0.1);
-    background: linear-gradient(
-  135deg,
-  #ffeb3b, 
-  #8bc34a 40%, 
-  #cddc39 80%, 
-  #ffeb3b
-);
+    background: #8bc34a;
+
   }
 
   .form_title {
@@ -69,3 +63,7 @@
     text-align: center;
   }
 
+  .paragraph_login {
+    font-size: 24px;
+    font-weight: 500;;
+  }

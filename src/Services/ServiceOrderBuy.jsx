@@ -28,10 +28,11 @@
 
     if (response.ok) {
         console.log("Vous venez de passer une commande");
+
     } else {
         console.error("Impossible de passer la commande")
     }
-    
+    return response
 }
 
 export default ServiceOrderBuy;

@@ -7,10 +7,12 @@ function Header({ isAdmin }) {
   const navigate = useNavigate();
   
   const handleNavigateHome = () => {
-    navigate('/');
+    navigate('/user');
   }
 
-
+  const handleDisconnect = () => {
+    navigate('/');
+  }
 
   return (
     <header className="header">
@@ -21,7 +23,7 @@ function Header({ isAdmin }) {
         <ul className="nav-list">
           {/* Onglets visibles uniquement si l'utilisateur est administrateur */}
           {!isAdmin && 
-            <img src="../../public/assets/cart.svg" alt='logo de caddie' className='logo_cart'/>
+            <img onClick={handleDisconnect} src="../../public/assets/logout.svg" alt='logo de déconnexion' className='logo_cart'/>
           }
           
           {isAdmin && (

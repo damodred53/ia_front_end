@@ -103,7 +103,7 @@ const AuthForm = () => {
         <p className="form_toggle">
           {isLogin ? (
             <>
-              Pas encore de compte ?{' '}
+              <p className="paragraph_login">Pas encore de compte ?{' '}</p>
               <button
                 type="button"
                 onClick={() => setIsLogin(false)}
@@ -114,7 +114,7 @@ const AuthForm = () => {
             </>
           ) : (
             <>
-              Déjà un compte ?{' '}
+              <p className="paragraph_login">Déjà un compte ?{' '}</p>
               <button
                 type="button"
                 onClick={() => setIsLogin(true)}

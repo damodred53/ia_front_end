@@ -7,6 +7,7 @@ import '../Styles/front_end.css';
 import Cart from '../Components/CartArticle';
 import ServiceOrderBuy from '../Services/ServiceOrderBuy';
 import {GetToken} from '../Services/ServiceAuth';
+ import { toast } from 'react-toastify';
 
 const FrontOffice = () => { 
 
@@ -51,7 +52,7 @@ const FrontOffice = () => {
             }
     }};
 
-    const handleOrder = () => {
+    const handleOrder = async () => {
         
 
         if (!cartItems) {
@@ -60,26 +61,29 @@ const FrontOffice = () => {
 
         const idUser = GetToken()
 
-        console.log(cartItems, idUser);
+        const responseOrder = await ServiceOrderBuy(cartItems, idUser);
+        if (responseOrder.ok) {
+            console.log('coucou')
+            toast.success('Merci beaucoup pour votre commande');
+        }
 
-        const orderProducts = ServiceOrderBuy(cartItems, idUser);
     };
 
     useEffect(() => {
         console.log("Je suis dans le useEffect de FrontOffice");
         const getArticles = async () => {
             const article = await fetchDropdownDatas();
-            console.log("Voici mes articles : ", article);
+
             setArticles(article);
         };
         getArticles();
 
     }, []);
 
-    console.log(cartItems);
 
     return (
-        <div >
+        
+        <div  className='main_page'>
             <Header isAdmin={false} cartItems={cartItems}/>
             <div className='front_office'>
                 <section className='list_articles'>
@@ -91,9 +95,12 @@ const FrontOffice = () => {
                 </section>
                 <hr className='line'/>
                 <Cart cartItems={cartItems} decreaseQuantity={decreaseQuantity} handleOrder={handleOrder}  />
+                
             </div>
             <Footer />
         </div>
+        
+       
     )
 
 }
