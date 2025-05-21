@@ -3,45 +3,45 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #4caf50; 
+    background-color: #2E2E2E;
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
+}
+
+.logo {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
-  .logo_cart {
+.logo_cart {
     width: 3rem;
     cursor: pointer;
-  }
-  
-  .nav {
+}
+
+.nav {
     display: flex;
-  }
-  
-  .nav-list {
+}
+
+.nav-list {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     margin-left: 20px;
-  }
-  
-  .nav-link {
+}
+
+.nav-link {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
-  }
-  
-  .nav-link:hover {
+}
+
+.nav-link:hover {
     text-decoration: underline;
-  }
+}
   

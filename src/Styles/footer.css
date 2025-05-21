@@ -1,25 +1,25 @@
 .footer {
 
-    background-color: #4caf50; 
-    color: #ecf0f1; 
-    text-align: center; 
-    padding: 20px 0; 
-    font-size: 14px; 
+    background-color: #2E2E2E;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
 
-    width: 100%; 
+    width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer_paragraph {
-    margin: 0; 
-    line-height: 1.5; 
-    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Media queries pour s'adapter aux petits écrans */
 @media (max-width: 768px) {
     .footer {
-        font-size: 12px; 
-        padding: 15px 0; 
+        font-size: 12px;
+        padding: 15px 0;
     }
 }
